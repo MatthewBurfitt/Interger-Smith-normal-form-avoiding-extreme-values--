@@ -1,1 +1,1 @@
-Matlab implementation of Smith normal form over field of chrecterstic p# Smith-normal-form-over-field-of-prime-charectersitc-p
+Matlab implementation of Havas and Majewski algorithm to compute Simth normal form of an n by m integer matrix avoiding extreem valus duraing computation and Matlab implementation of Smith normal form over field of chrecterstic.# Interger-Smith-normal-form-avoiding-extreme-values--
