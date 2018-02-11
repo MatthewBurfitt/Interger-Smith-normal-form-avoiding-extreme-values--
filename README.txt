@@ -1,0 +1,1 @@
+Matlab implementation of Havas and Majewski algorithm to compute Simth normal form of an n by m integer matrix avoiding extreem valus duraing computation.# Interger-Smith-normal-form-avoiding-extreme-values--
