@@ -1,17 +1,17 @@
-%Takes matrx A and put it in its Smith normal form over filed of prime charecterstic p, outputting the nuber of entries on the leading diagonal
+%Takes matrix A and put it in its Smith normal form over filed of prime characteristic p, outputting the number of entries on the leading diagonal
 function [U] = ModuloNormalForm(A,p)
 
 U=0;
 
-h=size(A,1);%Hight of A
+h=size(A,1);%Height of A
 w=size(A,2);%Width of A
 
 L=min(h,w);%The size of the leading diagonal
 
-%The normal form procedure moves teh current positionalong the leading diagonal
+%The normal form procedure moves the current position along the leading diagonal
 for a=1:L
     
-	%Rduces teh matrix to its simpilist ineger representative modulo p
+	%Reduces the matrix to its simplest integer representative modulo p
     for i=a:h
         for j=a:w
             if A(i,j)>0
@@ -24,14 +24,14 @@ for a=1:L
     
     done=1;
     
-	%checks to see if the current row and column are zero an if so proceeds to the next position on the leading diagonal
+	%Checks to see if the current row and column are zero an if so proceeds to the next position on the leading diagonal
     if A(a,:)==zeros(1,w)
         if A(:,a)==zeros(h,1)
             done=0;
         end;
     end;
     
-%Uses integral row and column operations to reduce the current position to the greatest common devisor of its row, then all other entries to zero
+%Uses integral row and column operations to reduce the current position to the greatest common divisor of its row, then all other entries to zero
     while done
         
 		%Moves the smallest positive integer in the current row or column to the current position        
@@ -66,7 +66,7 @@ for a=1:L
                 
         done=0;
          
-		%Reduces all non-zero entries in the current column by the integer in the current poisition
+		%Reduces all non-zero entries in the current column by the integer in the current position
         for i=a+1:h
             if A(i,a)
                 A(i,:)=A(i,:)-floor(A(i,a)/A(a,a))*A(a,:);
@@ -76,7 +76,7 @@ for a=1:L
             end;
         end;
         
-		%Reduces all non-zero entries in the current row by the integer in the current poisition		
+		%Reduces all non-zero entries in the current row by the integer in the current position		
         for i=a+1:w
             if A(a,i)
                 A(:,i)=A(:,i)-floor(A(a,i)/A(a,a))*A(:,a);
@@ -112,4 +112,4 @@ for i=1:L
     end;
 end;
 
-U=w-temp;%Outputs the number of non-zero entries on the leading diagonal of the normal fomr matrix
+U=w-temp;%Outputs the number of non-zero entries on the leading diagonal of the normal form matrix
