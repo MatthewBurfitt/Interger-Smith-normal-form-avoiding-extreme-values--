@@ -1,7 +1,7 @@
-%Given a vector V outputs gcd G and vector of scalers X whose sclar product with V is G
+%Given a vector V outputs gcd G and vector of scales X whose scalar product with V is G
 function [X,G] = VecGCD(V)
 
-s=size(V,2);%number of elments in V
+s=size(V,2);%number of elements in V
 
 P=eye(s);
 %For recording intermediary values of X
@@ -24,12 +24,12 @@ if V==zeros(1,s)
     X=zeros(1,s);
     G=0;
 else
-%Computes G and X Euclidean algorithm
+%Computes G and X with the Euclidean algorithm
 while minV(1)
 
     minV=[0,inf];
 
-	%Finds the smallest value i V
+	%Finds the smallest value i in V
     for i=1:s
         if V(i)
             if V(i)<minV(2)
@@ -45,7 +45,7 @@ while minV(1)
         break
     end;
     
-	%reduce the vector V modulo its minimum vlaue and record what was done in P
+	%reduce the vector V modulo its minimum value and record what was done in P
     if minV(1)
         for i=1:s
             if i==minV(1)
@@ -62,7 +62,7 @@ while minV(1)
 end;
 end;
 
-%Assigns the correct sign to slements of X
+%assigns the correct sign to elements of X
 for i=1:s
     X(i)=X(i)*(-1)^(neg(i));
 end;
