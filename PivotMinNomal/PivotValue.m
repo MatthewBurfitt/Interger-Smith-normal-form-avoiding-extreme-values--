@@ -1,7 +1,7 @@
-%Given matrix A ouputs its matrix P of pivot values
+%Given matrix A outputs its matrix P of pivot values
 function [P] = PivotValue(A)
 
-[y,x]=size(A);%Records teh size of A
+[y,x]=size(A);%Records the size of A
 
 P=zeros(y,x);%Outputs matrix of the correct size
 
@@ -12,14 +12,14 @@ for k=1:x
 
     if Gc%Checks the column was not a zero vector
     
-		%If the first value of gcd scalar vector is zero changes it to an equivlent vector where the first entry is non-zero
+		%If the first value of gcd scalar vector is zero changes it to an equivalent vector where the first entry is non-zero
         if Xc(1)==0
             temp=(A(1,k))/Gc;
             Xc=Xc*(temp+1);
             Xc(1)=-1;
         end;
 		
-		%Computes the values of the matrix if this column were pivot
+		%Computes the values of the matrix if this column was the pivot
         ColVal=zeros(y,x);
         
         for i=1:y
@@ -47,7 +47,7 @@ for k=1:y
 
      if Gr%Checks the row was not a zero row
 		
-		%If the first value of gcd scalar vector is zero changes it to an equivlent vector where the first entry is non-zero
+		%If the first value of gcd scalar vector is zero changes it to an equivalent vector where the first entry is non-zero
          if Xr(1)==0
              temp=(A(k,1))/Gr;
              Xr=Xr*(temp+1);
