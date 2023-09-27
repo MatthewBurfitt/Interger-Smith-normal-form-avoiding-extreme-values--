@@ -1,4 +1,4 @@
-%Given a matrix A finds its simith normal form in a way that attepst to minimise the magintude of intermediary values
+%Given a matrix A finds its Smith Normal form in a way that attempts to minimize the magnitude of intermediary values
 function [A] = PivotMinNomal(A)
 
 [y,x]=size(A);%Records the size of A
@@ -26,7 +26,7 @@ for i=1:max
         break
     end;
     
-	%takes B the part of teh matrix which we still need to reduce
+	%takes B the part of the matrix which we still need to reduce
 	
     B=zeros(y-i+1,x-i+1);
     
@@ -40,7 +40,7 @@ for i=1:max
     
     MinPiv=[1,1,inf];
     
-    for a=1:size(B,1) %finds nonezero value with smalest pivot value
+    for a=1:size(B,1) %finds none-zero value with smallest pivot value
         for b=1:size(B,2)
             if A(i+a-1,i+b-1)
                 if B(a,b)<MinPiv(3)
@@ -56,7 +56,7 @@ for i=1:max
     A(:,[i,q+i-1])=A(:,[q+i-1,i]);
     A([i,p+i-1],:)=A([p+i-1,i],:);
     
-    %now perform GCD reduction on the first row column for the top left postion.
+    %now perform GCD reduction on the first row column for the top left position.
     in=1;
     
     while in
@@ -188,7 +188,7 @@ for i=1:max
     
 end;
 
-%rearanges elements on diagonal smallest towards top left.
+%rearranges elements on diagonal smallest towards top left.
 swap=1;
 
 while swap
